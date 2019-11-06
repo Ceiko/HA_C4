@@ -28,3 +28,4 @@
     *.idea
     *.iml
 
+/src/com/company/Main.java
