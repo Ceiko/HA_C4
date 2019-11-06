@@ -26,7 +26,7 @@ public class Buch extends Medium {
         if (!(erscheinungsjahr == 0 )){
             this.erscheinungsjahr = erscheinungsjahr;
         }else{
-            System.err.println("Erscheinungsjahr darf nicht null sein!");
+            throw new IllegalArgumentException("Erscheinungsjahr darf nicht null sein!");
         }
     }
 
@@ -35,10 +35,10 @@ public class Buch extends Medium {
     }
 
     public void setVerlag(String verlag) {
-        if (!(verlag == null || verlag.isEmpty())){
+        if (!(verlag == null || verlag.isBlank())){
             this.verlag = verlag;
         }else{
-            System.err.println("Verlag darf nicht leer oder null sein!");
+            throw new IllegalArgumentException("Verlag darf nicht leer oder null sein!");
         }
     }
 
@@ -73,10 +73,10 @@ public class Buch extends Medium {
     }
 
     public void setVerfasser(String verfasser) {
-        if (!(verfasser == null || verfasser.isEmpty())){
+        if (!(verfasser == null || verfasser.isBlank())){
             this.verfasser = verfasser;
         }else{
-            System.err.println("Verfasser darf nicht leer oder null sein!");
+            throw new IllegalArgumentException("Verfasser darf nicht leer oder null sein!");
         }
     }
 

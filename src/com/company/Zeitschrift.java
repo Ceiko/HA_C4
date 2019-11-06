@@ -20,10 +20,10 @@ public class Zeitschrift extends Medium {
     }
 
     public void setIssn(String issn) {
-        if (!(issn == null || issn.isEmpty())){
+        if (!(issn == null || issn.isBlank())){
             this.issn = issn;
         }else{
-            System.err.println("Issn darf nicht leer oder null sein!");
+            throw new IllegalArgumentException("Issn darf nicht leer oder null sein!");
         }
     }
 
@@ -35,7 +35,7 @@ public class Zeitschrift extends Medium {
         if (!(volume == 0 )){
             this.volume = volume;
         }else{
-            System.err.println("Volume darf nicht null sein!");
+            throw new IllegalArgumentException("Volume darf nicht null sein!");
         }
     }
 
@@ -47,7 +47,7 @@ public class Zeitschrift extends Medium {
         if (!(nummer == 0 )){
             this.nummer = nummer;
         }else{
-            System.err.println("Nummer darf nicht null sein!");
+            throw new IllegalArgumentException("Nummer darf nicht null sein!");
         }
     }
 

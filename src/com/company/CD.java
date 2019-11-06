@@ -20,10 +20,10 @@ public class CD extends Medium {
     }
 
     public void setLabel(String label) {
-        if (!(label == null || label.isEmpty())){
+        if (!(label == null || label.isBlank())){
             this.label = label;
         }else{
-            System.err.println("Label darf nicht leer oder null sein!");
+            throw new IllegalArgumentException("Label darf nicht leer oder null sein!");
         }
     }
 
@@ -32,10 +32,10 @@ public class CD extends Medium {
     }
 
     public void setKuenstler(String kuenstler) {
-        if (!(kuenstler == null || kuenstler.isEmpty())){
+        if (!(kuenstler == null || kuenstler.isBlank())){
             this.kuenstler = kuenstler;
         }else{
-            System.err.println("Kuenstler darf nicht leer oder null sein!");
+            throw new IllegalArgumentException("Kuenstler darf nicht leer oder null sein!");
         }
     }
 
