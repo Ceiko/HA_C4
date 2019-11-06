@@ -20,7 +20,7 @@ public class Zeitschrift extends Medium {
     }
 
     public void setIssn(String issn) {
-        if (!(issn == null || issn.isBlank())){
+        if (!(issn == null && issn.isBlank())){
             this.issn = issn;
         }else{
             throw new IllegalArgumentException("Issn darf nicht leer oder null sein!");

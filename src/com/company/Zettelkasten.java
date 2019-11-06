@@ -12,12 +12,25 @@ public class Zettelkasten implements Iterable<Medium>{
 
     }
 
-    public void dropMedium(){
+    public void dropMedium(String titel){
+        for( int i = 0; i < myZettelkasten.size(); i++){
+            if(myZettelkasten.get(i).getTitel().equals(titel)){
+                myZettelkasten.remove(myZettelkasten.get(i));
+            }else{
+                System.err.println("Titel nicht gefunden");
+            }
+        }
+
 
     }
 
-    public void findMedium(){
-
+    public Medium findMedium(String titel){
+        for (int i = 0; i < myZettelkasten.size(); i++){
+            if (myZettelkasten.get(i).getTitel().equals(titel)){
+                return  myZettelkasten.get(i);
+            }
+        }
+        return null;
     }
 
 

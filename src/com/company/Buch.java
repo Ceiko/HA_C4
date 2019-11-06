@@ -35,7 +35,7 @@ public class Buch extends Medium {
     }
 
     public void setVerlag(String verlag) {
-        if (!(verlag == null || verlag.isBlank())){
+        if (!(verlag == null && verlag.isBlank())){
             this.verlag = verlag;
         }else{
             throw new IllegalArgumentException("Verlag darf nicht leer oder null sein!");
@@ -73,7 +73,7 @@ public class Buch extends Medium {
     }
 
     public void setVerfasser(String verfasser) {
-        if (!(verfasser == null || verfasser.isBlank())){
+        if (!(verfasser == null && verfasser.isBlank())){
             this.verfasser = verfasser;
         }else{
             throw new IllegalArgumentException("Verfasser darf nicht leer oder null sein!");

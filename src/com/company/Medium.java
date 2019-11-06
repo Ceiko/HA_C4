@@ -20,7 +20,7 @@ public abstract class Medium {
     }
 
     public void setTitel(String titel) {
-        if (!(titel == null || titel.isBlank())){
+        if (!(titel == null && titel.isBlank())){
             this.titel = titel;
         }else{
             throw new IllegalArgumentException("Titel darf nicht leer oder null sein!");
