@@ -18,9 +18,9 @@ public class Bibliothek {
         for (Medium medium : zettelkasten) {
             System.out.println(medium.calculateRepresentation());
 
-
-            //zettelkasten.sort(); // für Aufgabe C.5
-
-        }
+            }
+        zettelkasten.sort("aufsteigend");
+        for (Medium medium : zettelkasten) {
+            System.out.println(medium.calculateRepresentation());}
     }
 }
