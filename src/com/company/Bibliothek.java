@@ -1,5 +1,9 @@
 package com.company;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Dieses Programm speichert Werte in einem Array und gibt diese auf der Konsole aus.
  * @author Nick Kudin
@@ -7,7 +11,7 @@ package com.company;
  */
 public class Bibliothek {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
 
         Zettelkasten zettelkasten = new Zettelkasten();
         zettelkasten.addMedium(new CD("Live At Wembley", "Parlophone (EMI)", "Queen"));
@@ -22,5 +26,13 @@ public class Bibliothek {
         zettelkasten.sort("aufsteigend");
         for (Medium medium : zettelkasten) {
             System.out.println(medium.calculateRepresentation());}
+
+        BinaryPersistency bp = new BinaryPersistency();
+        bp.save(zettelkasten,"sichern");
+
+        bp.load("sichern");
+        /*for (Medium medium : zettelkasten.) {
+            System.out.println(medium);
+        }*/
     }
 }

@@ -1,10 +1,12 @@
 package com.company;
 
+import java.io.Serializable;
+
 /**
  * Diese Klasse ist die Oberklasse, die anderen Klassen erben von ihr.
  */
 
-public abstract class Medium implements Comparable<Medium> {
+public abstract class Medium implements Comparable<Medium>, Serializable {
     private String titel;
 
     public Medium() {
