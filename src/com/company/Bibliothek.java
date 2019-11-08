@@ -11,13 +11,30 @@ import java.util.List;
  */
 public class Bibliothek {
 
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
+    public static void main(String[] args) {
 
         Zettelkasten zettelkasten = new Zettelkasten();
-        zettelkasten.addMedium(new CD("Live At Wembley", "Parlophone (EMI)", "Queen"));
-        zettelkasten.addMedium(new Buch("Duden 01. Die deutsche Rechtschreibung ", 2004, "Bibliographisches Institut, Mannheim ", "3-411-04013-0", "-"));
-        zettelkasten.addMedium(new Zeitschrift("Der Spiegel", "0038-7452 ", 54, 6));
-        zettelkasten.addMedium(new ElektronischesMedium("Hochschule Stralsund ", "http://www.hochschule-stralsund.de"));
+
+        try {
+            zettelkasten.addMedium(new CD("Live at Wembley", "Parlophone (EMI)", "Queen"));
+        }catch (IllegalArgumentException iae){
+            System.err.println(iae.getMessage());
+        }
+        try{
+            zettelkasten.addMedium(new Buch("Duden 01. Die deutsche Rechtschreibung ", 2004, "Bibliographisches Institut, Mannheim ", "3-411-04013-0", "-"));
+        }catch (IllegalArgumentException iae){
+            System.err.println(iae.getMessage());
+        }
+        try {
+            zettelkasten.addMedium(new Zeitschrift("Der Spiegel", "0038-7452 ", 54, 6));
+        }catch (IllegalArgumentException iae){
+            System.err.println(iae.getMessage());
+        }
+        try {
+            zettelkasten.addMedium(new ElektronischesMedium("Hochschule Stralsund ", "http://www.hochschule-stralsund.de"));
+        }catch (IllegalArgumentException iae){
+            System.err.println(iae.getMessage());
+        }
 
         for (Medium medium : zettelkasten) {
             System.out.println(medium.calculateRepresentation());
@@ -30,9 +47,9 @@ public class Bibliothek {
         BinaryPersistency bp = new BinaryPersistency();
         bp.save(zettelkasten,"sichern");
 
-        bp.load("sichern");
-        /*for (Medium medium : zettelkasten.) {
-            System.out.println(medium);
-        }*/
+        Zettelkasten zk1 = bp.load("sichern");
+        for (Medium medium : zk1) {
+            System.out.println(medium.calculateRepresentation());
+        }
     }
 }

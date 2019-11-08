@@ -1,5 +1,10 @@
 package com.company;
 
+/**
+ * @author Nick Kudin
+ *
+ */
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;

@@ -21,7 +21,7 @@ public class ElektronischesMedium extends Medium {
     public void setUrl(String url) {
 
         if (checkURL(url)) {
-            if (!(url == null && url.isBlank())){
+            if (url != null && !url.isBlank()){
                 this.url = url;
             }else{
                  throw new IllegalArgumentException("Url darf nicht leer oder null sein!");
