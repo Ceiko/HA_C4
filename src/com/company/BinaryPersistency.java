@@ -1,9 +1,20 @@
 package com.company;
 
 import java.io.*;
-import java.util.ArrayList;
+
+/**
+ * Diese Klasse Serialisiert und Deserialisiert Objekte.
+ * @author Nick Kudin
+ */
+
 
 public class BinaryPersistency implements Persistency {
+
+    /**
+     * Diese Methode speichert Zettelkasten in einer Datei.
+     * @param zk
+     * @param dateiname
+     */
     @Override
     public void save(Zettelkasten zk, String dateiname) {
 
@@ -17,6 +28,11 @@ public class BinaryPersistency implements Persistency {
 
     }
 
+    /**
+     * Diese Methode lädt Zettelkasten aus einer Datei
+     * @param dateiname
+     * @return null
+     */
     @Override
     public Zettelkasten load(String dateiname) {
 

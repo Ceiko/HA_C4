@@ -1,7 +1,8 @@
 package com.company;
 
 /**
- * Dies ist eine Unterklasse und erbt von Medium, dies erkennt man an "extends".
+ * Dies ist eine Unterklasse und erbt von Medium.
+ * @author Nick Kudin
  */
 
 public class Buch extends Medium {

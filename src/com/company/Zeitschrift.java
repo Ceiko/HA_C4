@@ -1,8 +1,9 @@
 package com.company;
 
 /**
- * Dies ist eine Unterklasse und erbt von Medium, dies erkennt man an "extends".
- */
+ * Dies ist eine Unterklasse und erbt von Medium.
+ * @author  Nick Kudin
+ * */
 public class Zeitschrift extends Medium {
     private String issn;
     private int volume;

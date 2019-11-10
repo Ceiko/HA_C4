@@ -3,7 +3,8 @@ package com.company;
 import java.net.URL;
 
 /**
- * Dies ist eine Unterklasse und erbt von Medium, dies erkennt man an "extends".
+ * Dies ist eine Unterklasse und erbt von Medium.
+ * @author Nick Kudin
  */
 
 public class ElektronischesMedium extends Medium {

@@ -1,13 +1,10 @@
 package com.company;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * Dieses Programm speichert Werte in einem Array und gibt diese auf der Konsole aus.
+ * Diese Klasse instaziert die Medien.
  * @author Nick Kudin
- * @version Aufgabe A11
+ * @version Aufgabe C4 -C6
  */
 public class Bibliothek {
 
@@ -40,14 +37,43 @@ public class Bibliothek {
             System.out.println(medium.calculateRepresentation());
 
             }
+        // Test für falschen Titel
+        try {
+            if(zettelkasten.dropMedium( "Der Spiege") == false){
+                System.err.println("\nTitel nicht gefunden.");
+            }
+        }catch (IllegalArgumentException iae){
+            System.err.println(iae.getMessage());
+        }
+        // Test für falschen Titel
+        try {
+            System.out.println(zettelkasten.findMedium("Live at Wemble").calculateRepresentation());
+        }catch (NullPointerException npe){
+            System.err.println(npe.getMessage());
+
+        }
+        // aufsteigen sortieren
         zettelkasten.sort("aufsteigend");
         for (Medium medium : zettelkasten) {
             System.out.println(medium.calculateRepresentation());}
 
-        BinaryPersistency bp = new BinaryPersistency();
-        bp.save(zettelkasten,"sichern");
+        // HumanReadable speichern
+        HumanReadablePersistency hrp = new HumanReadablePersistency();
+        hrp.save(zettelkasten, "data/human.ser");
 
-        Zettelkasten zk1 = bp.load("sichern");
+        //HumanReadable laden
+        try {
+            hrp.load("data/human.ser");
+        }catch (UnsupportedOperationException uoe){
+            System.err.println(uoe.getMessage());
+        }
+
+        //BinaryPersistency speichern
+        BinaryPersistency bp = new BinaryPersistency();
+        bp.save(zettelkasten,"data/sichern.ser");
+
+        // BinaryPersistency laden
+        Zettelkasten zk1 = bp.load("data/sichern.ser");
         for (Medium medium : zk1) {
             System.out.println(medium.calculateRepresentation());
         }

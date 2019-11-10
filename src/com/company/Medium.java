@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 /**
  * Diese Klasse ist die Oberklasse, die anderen Klassen erben von ihr.
+ * @author Nick Kudin
  */
 
 public abstract class Medium implements Comparable<Medium>, Serializable {

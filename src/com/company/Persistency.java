@@ -1,7 +1,9 @@
 package com.company;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
+/**
+ * Dieses Interface enthält die Methoden save und load.
+ * @author Nick Kudin
+ */
 
 public interface Persistency {
     public void save (Zettelkasten zk, String dateiname) ;

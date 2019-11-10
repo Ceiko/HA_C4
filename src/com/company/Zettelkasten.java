@@ -1,6 +1,7 @@
 package com.company;
 
 /**
+ * Diese Klasse enthält Methoden zur Verwaltung von Medien
  * @author Nick Kudin
  *
  */
@@ -14,23 +15,33 @@ public class Zettelkasten implements Iterable<Medium>, Serializable {
 
     private ArrayList<Medium> myZettelkasten = new ArrayList<>();
 
+    /**
+     * Diese Methode fügt Medien zum Zettelkasen hinzu.
+     * @param medium
+     */
     public void addMedium(Medium medium) {
         myZettelkasten.add(medium);
 
     }
-
-    public void dropMedium(String titel) {
+    /**
+     * Diese Methode löscht ein Medium anhand des Titels falls dieser nicht gefunden wurde.
+     * @param titel
+     * @return true oder false
+     */
+    public boolean dropMedium(String titel) {
         for (int i = 0; i < myZettelkasten.size(); i++) {
             if (myZettelkasten.get(i).getTitel().equals(titel)) {
                 myZettelkasten.remove(myZettelkasten.get(i));
-            } else {
-                System.err.println("Titel nicht gefunden");
+                return true;
             }
-        }
-
-
+        } return false;
     }
 
+    /**
+     * Diese Methode sucht anhand des Titels nach einem Medium, falls dieser nicht vorhanden ist, wird null ausgegeben.
+     * @param titel
+     * @return null
+     */
     public Medium findMedium(String titel) {
         for (int i = 0; i < myZettelkasten.size(); i++) {
             if (myZettelkasten.get(i).getTitel().equals(titel)) {
@@ -52,7 +63,7 @@ public class Zettelkasten implements Iterable<Medium>, Serializable {
             for (int i = 0; i < myZettelkasten.size() - 1; i++) {
                 if (myZettelkasten.get(i + 1).compareTo(myZettelkasten.get(i)) < 0) {
                     Collections.sort(myZettelkasten);
-                    System.out.println("Wurde aufsteigend sortiert");
+                    System.out.println("\nWurde aufsteigend sortiert");
                 }
             }
 
@@ -60,7 +71,7 @@ public class Zettelkasten implements Iterable<Medium>, Serializable {
             for (int i = 0; i < myZettelkasten.size() - 1; i++) { // -1 weil wir außerhalb des Index sind
                 if (myZettelkasten.get(i + 1).compareTo(myZettelkasten.get(i)) > 0) {
                     Collections.sort(myZettelkasten, Collections.reverseOrder()); // anders herum
-                    System.out.println("Wurde absteigend sortiert");
+                    System.out.println("\nWurde absteigend sortiert");
                 }
             }
 
